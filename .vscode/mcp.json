@@ -1,0 +1,29 @@
+{
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${input:rootDirectory}",
+        "${input:allowedDirectories}"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    }
+  },
+  "inputs": [
+    {
+      "id": "rootDirectory",
+      "type": "promptString",
+      "description": "Root Directory"
+    },
+    {
+      "id": "allowedDirectories",
+      "type": "promptString",
+      "description": "Allowed Directories"
+    }
+  ]
+}
