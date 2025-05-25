@@ -1,4 +1,16 @@
 {
+  "inputs": [
+    {
+      "id": "rootDirectory",
+      "type": "promptString",
+      "description": "Root Directory"
+    },
+    {
+      "id": "allowedDirectories",
+      "type": "promptString",
+      "description": "Allowed Directories"
+    }
+  ],
   "servers": {
     "filesystem": {
       "command": "npx",
@@ -12,18 +24,15 @@
     "memory": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-memory"]
-    }
-  },
-  "inputs": [
-    {
-      "id": "rootDirectory",
-      "type": "promptString",
-      "description": "Root Directory"
     },
-    {
-      "id": "allowedDirectories",
-      "type": "promptString",
-      "description": "Allowed Directories"
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp", "redis://redis.bluesky.local:80"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp"],
+      "env": {}
     }
-  ]
+  }
 }
