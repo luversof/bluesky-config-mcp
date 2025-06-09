@@ -27,12 +27,21 @@
     },
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "redis://redis.bluesky.local:80"]
+      "args": [
+        "-y",
+        "@upstash/context7-mcp",
+        "redis://redis.bluesky.local:6379"
+      ],
+      "env": {}
     },
     "playwright": {
       "command": "npx",
       "args": ["-y", "@playwright/mcp"],
       "env": {}
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     }
   }
 }
