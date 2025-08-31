@@ -1,4 +1,32 @@
 {
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${input:rootDirectory}",
+        "${input:allowedDirectories}"
+      ],
+      "type": "stdio"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "type": "stdio"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp"],
+      "env": {},
+      "type": "stdio"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "type": "stdio"
+    }
+  },
   "inputs": [
     {
       "id": "rootDirectory",
@@ -10,38 +38,5 @@
       "type": "promptString",
       "description": "Allowed Directories"
     }
-  ],
-  "servers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "${input:rootDirectory}",
-        "${input:allowedDirectories}"
-      ]
-    },
-    "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"]
-    },
-    "context7": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp",
-        "redis://redis.bluesky.local:6379"
-      ],
-      "env": {}
-    },
-    "playwright": {
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp"],
-      "env": {}
-    },
-    "sequential-thinking": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-    }
-  }
+  ]
 }
